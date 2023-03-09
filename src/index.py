@@ -20,7 +20,7 @@ async def on_message(message):
     if message.content.find("hello") != -1:
         await message.channel.send("Hi, stranger, What's your favorite food?")    
 
-bot.run('OTc4MTgwOTg3NTgwMTkwNzIw.GxWpNh.wnEbMopPcQ5KoszK-82ZjOv5LRwDThm9sxOcjc')
+bot.run('OTc4MTgwOTg3NTgwMTkwNzIw.GHcVZR.iYWMpvXaIE0BLq2v7ecfpWYrjx4TiVDTTFSGxk')
 
 
 
