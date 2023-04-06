@@ -78,7 +78,7 @@ array_de_preguntas = []
 dict_de_pregunta = {}
 
 def getData():
-    preguntas = ['1,false,Una comida que te recuerde a tu hogar?', '2,false,Elegirías otra época para vivir?', '3,false,Cuál es el mejor lugar que conociste', '6,false,Cuál fue el último regalo que hiciste?', '7,false,Un viaje pendiente?', '8,false,Una canción que te alegre', '9,false,Una cosa que te guste pero te sale mal?', '10,false,Algo ridículo por lo que te gustaría que te paguen?', '11,false,Te gusta bañarte?', '12,false,Te gusta comer?', '15,false,Tenés mañas? Cuáles?', '16,false,Volver al pasado o ir al futuro?', '17,false,Qué película viste más veces', '18,false,Tenés alguna obsesión, cuál?']
+    preguntas = ['1,true,Una comida que te recuerde a tu hogar?', '2,true,Elegirías otra época para vivir?', '3,true,Cuál es el mejor lugar que conociste', '6,true,Cuál fue el último regalo que hiciste?', '7,true,Un viaje pendiente?', '8,false,Una canción que te alegre?', '9,false,Una cosa que te guste pero te sale mal?', '10,false,Algo ridículo por lo que te gustaría que te paguen?', '11,false,Te gusta bañarte?', '12,false,Te gusta comer?', '15,false,Tenés mañas? Cuáles?', '16,false,Volver al pasado o ir al futuro?', '17,false,Qué película viste más veces', '18,false,Tenés alguna obsesión, cuál?']
 
     for pregunta in preguntas:
         #array_de_preguntas.append(pregunta.split(','))
@@ -94,4 +94,17 @@ def getData():
 
 
 getData()    
-print(array_de_preguntas)
+#print(array_de_preguntas[1]["estado"])
+
+""" for pregunta in array_de_preguntas:
+        estadoActual = pregunta["pregunta"]
+        print(estadoActual) """
+#acá importar la data del módulo preguntas.csv
+def pickPregunta(array):
+    for pregunta in array:
+        estadoActual = pregunta["estado"]
+        if estadoActual == "false":
+            print(pregunta["pregunta"]) 
+            break
+        
+pickPregunta(array_de_preguntas)        
