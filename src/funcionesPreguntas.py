@@ -15,3 +15,12 @@ def getData(filename):
     return array_de_diccionario
          
 #print(getData("preguntas.csv"))
+
+def pickPregunta(array):
+    for pregunta in array:
+        estadoActual = pregunta["estado"]
+        if estadoActual == False:
+            print(pregunta["pregunta"]) 
+            break
+        
+pickPregunta(array_de_preguntas)     
