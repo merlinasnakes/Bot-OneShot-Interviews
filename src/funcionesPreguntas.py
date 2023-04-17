@@ -1,8 +1,8 @@
 import csv
  
+array_de_diccionario=[]
 
 def getData(filename):
-    array_de_diccionario=[]
     with open(filename, encoding="utf-8") as dataPreguntas:
         for linea in dataPreguntas.readlines():
             linea_dividida = linea.replace("\n", "").split(';')
@@ -13,7 +13,6 @@ def getData(filename):
             }
             array_de_diccionario.append(diccionario_de_linea)
     return array_de_diccionario
-  
 
 def pickPregunta(array):
     for diccionario_de_pregunta in array:
