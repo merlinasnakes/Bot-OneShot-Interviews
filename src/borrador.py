@@ -103,7 +103,7 @@ getData()
 def pickPregunta(array):
     for pregunta in array:
         estadoActual = pregunta["estado"]
-        if estadoActual == "false":
+        if estadoActual == False:
             print(pregunta["pregunta"]) 
             break
         
