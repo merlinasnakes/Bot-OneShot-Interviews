@@ -7,20 +7,19 @@ def getData(filename):
         for linea in dataPreguntas.readlines():
             linea_dividida = linea.replace("\n", "").split(';')
             diccionario_de_linea = {
-                "estado": linea_dividida[1] == "true",
                 "id": int(linea_dividida[0]),
-                "linea": linea_dividida[2]
+                "estado": linea_dividida[1] == "true",
+                "pregunta": linea_dividida[2]
             }
             array_de_diccionario.append(diccionario_de_linea)
     return array_de_diccionario
-         
-#print(getData("preguntas.csv"))
+  
 
 def pickPregunta(array):
-    for pregunta in array:
-        estadoActual = pregunta["estado"]
+    for diccionario_de_pregunta in array:
+        estadoActual = diccionario_de_pregunta["estado"]
         if estadoActual == False:
-            print(pregunta["pregunta"]) 
-            break
+            return(diccionario_de_pregunta["pregunta"]) 
+            
         
-pickPregunta(array_de_preguntas)     
+#print(pickPregunta(getData("preguntas.csv")))
