@@ -108,3 +108,9 @@ def pickPregunta(array):
             break
         
 pickPregunta(array_de_preguntas)        
+
+
+from dotenv import load_dotenv
+from decouple import config
+
+print(config('TOKEN_BOT'))
