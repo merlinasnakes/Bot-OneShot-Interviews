@@ -15,7 +15,8 @@ def getData(filename):
     return array_de_diccionario
   
 
-def pickPregunta(array):
+def pickPregunta():
+    array= getData("preguntas.csv")
     for diccionario_de_pregunta in array:
         estadoActual = diccionario_de_pregunta["estado"]
         if estadoActual == False:
