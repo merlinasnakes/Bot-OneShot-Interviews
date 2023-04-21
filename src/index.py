@@ -2,6 +2,7 @@ import discord
 import os
 from discord.ext import commands
 from dotenv import load_dotenv
+from funcionesPreguntas import pickPregunta
 
 #from paramiko import Channel
 
@@ -25,7 +26,7 @@ async def on_ready():
 async def on_message(message):
     id = bot.get_guild(978319098834468864)
     if message.content.find("hello") != -1:
-        await message.channel.send("Hi, stranger, What's your favorite food?")    
+        await message.channel.send(pickPregunta())    
 
 
 
