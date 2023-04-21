@@ -1,11 +1,18 @@
-from click import pass_context
 import discord
+import os
 from discord.ext import commands
-from paramiko import Channel
+from dotenv import load_dotenv
 
-bot = commands.Bot(command_prefix='>', description="This is a survey bot")
+#from paramiko import Channel
 
-@bot.command()
+load_dotenv()
+intents = discord.Intents.all()
+bot = discord.Client(intents=intents)
+
+#bot = commands.Bot(command_prefix='>', description="This is a survey bot")
+
+
+@bot.event
 async def ping(ctx):
     await ctx.sent('pong ')
 
@@ -20,12 +27,12 @@ async def on_message(message):
     if message.content.find("hello") != -1:
         await message.channel.send("Hi, stranger, What's your favorite food?")    
 
-bot.run('OTc4MTgwOTg3NTgwMTkwNzIw.GHcVZR.iYWMpvXaIE0BLq2v7ecfpWYrjx4TiVDTTFSGxk')
 
 
-
-
-@bot.command(pass_context=True)
+@bot.event
 async def ping(ctx):
     channel = bot.get_channel(978319098834468864)
     await channel.send('Pong!')
+    
+    
+bot.run(os.getenv('TOKEN_BOT'))
