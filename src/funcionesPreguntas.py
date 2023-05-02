@@ -15,12 +15,21 @@ def getData(filename):
     return array_de_diccionario
   
 
+        
 def pickPregunta():
     array= getData("preguntas.csv")
     for diccionario_de_pregunta in array:
         estadoActual = diccionario_de_pregunta["estado"]
         if estadoActual == False:
-            return(diccionario_de_pregunta["pregunta"]) 
-            
+            preguntaElegida = diccionario_de_pregunta["pregunta"]
+            writeData("preguntas.csv")
+            return(preguntaElegida) 
+
+def writeData(filename):
+    with open(filename, 'w', encoding="utf-8") as dataPreguntas:
+        dataPreguntas.write(diccionario_de_pregunta["estado"] == True)            
         
-#print(pickPregunta(getData("preguntas.csv")))
+print(pickPregunta())
+
+
+
