@@ -8,19 +8,35 @@ def getData(filename):
             linea_dividida = linea.replace("\n", "").split(';')
             diccionario_de_linea = {
                 "id": int(linea_dividida[0]),
-                "estado": linea_dividida[1] == "true",
+                "estado": linea_dividida[1] == "True",
                 "pregunta": linea_dividida[2]
             }
             array_de_diccionario.append(diccionario_de_linea)
     return array_de_diccionario
   
 
+        
 def pickPregunta():
-    array= getData("preguntas.csv")
-    for diccionario_de_pregunta in array:
+    array= getData("preguntas")
+    for i, diccionario_de_pregunta in enumerate(array):
         estadoActual = diccionario_de_pregunta["estado"]
         if estadoActual == False:
-            return(diccionario_de_pregunta["pregunta"]) 
-            
+            preguntaElegida = diccionario_de_pregunta["pregunta"]
+            array[i]["estado"] = True
+            writeData("preguntas", array)
+            return(preguntaElegida) 
+
+
+
+def writeData(filename, array):
+    with open(filename, 'w', encoding="utf-8") as dataPreguntas:
+        for line in array:
+            registro = str(line["id"]) + ";" + str(line["estado"]) + ";" + line["pregunta"] + "\n"    
+            dataPreguntas.write(registro)   
         
-#print(pickPregunta(getData("preguntas.csv")))
+             
+        
+print(pickPregunta())
+
+
+
