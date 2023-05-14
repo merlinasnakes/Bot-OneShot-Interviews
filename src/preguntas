@@ -1,7 +1,7 @@
 1;True;Una comida que te recuerde a tu hogar?
-2;True;Elegirías otra época para vivir?
-3;True;Cuál es el mejor lugar que conociste
-6;True;Cuál fue el último regalo que hiciste?
+2;False;Elegirías otra época para vivir?
+3;False;Cuál es el mejor lugar que conociste
+6;False;Cuál fue el último regalo que hiciste?
 7;False;Un viaje pendiente?
 8;False;Una canción que te alegre?
 9;False;Una cosa que te guste pero te sale mal?
