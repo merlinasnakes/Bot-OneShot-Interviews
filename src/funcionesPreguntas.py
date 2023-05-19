@@ -13,16 +13,17 @@ def getData(filename):
             }
             array_de_diccionario.append(diccionario_de_linea)
     return array_de_diccionario
-  
+
+#print(getData("preguntas"))  
 
         
 def pickPregunta():
     array= getData("preguntas")
-    for i, diccionario_de_pregunta in enumerate(array):
+    for index, diccionario_de_pregunta in enumerate(array):
         estadoActual = diccionario_de_pregunta["estado"]
         if estadoActual == False:
             preguntaElegida = diccionario_de_pregunta["pregunta"]
-            array[i]["estado"] = True
+            array[index]["estado"] = True
             writeData("preguntas", array)
             return(preguntaElegida) 
 
@@ -36,7 +37,6 @@ def writeData(filename, array):
         
              
         
-print(pickPregunta())
 
 
 
