@@ -14,7 +14,7 @@ def getData(filename):
             array_de_diccionario.append(diccionario_de_linea)
     return array_de_diccionario
 
-print(getData("preguntas"))  
+#print(getData("preguntas"))  
 
         
 def pickPregunta():
@@ -37,7 +37,6 @@ def writeData(filename, array):
         
              
         
-print(pickPregunta())
 
 
 
