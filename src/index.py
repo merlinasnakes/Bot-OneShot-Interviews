@@ -37,9 +37,9 @@ async def on_message(message):
             lista_miembros.append(member)                
         await message.channel.send(f"{lista_miembros[1].mention} - {pickPregunta()}")   
 
-@bot.tree.command(name="hello")
+@bot.tree.command(name="hello", description="Esto es un comando de prueba")
 async def hello(interaction: discord.Interaction):
-    await interaction.response.message.send(f"Hey {interaction.user.mention}! This is a slash command!")
+    await interaction.response.message.send(f"Hey {interaction.user.mention}! Esto es un slash command!")
     
     
          
