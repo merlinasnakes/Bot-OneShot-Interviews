@@ -2,6 +2,7 @@ import discord
 import os
 from discord.ext import commands
 from discord import app_commands
+from discord import tree
 from dotenv import load_dotenv
 from funcionesPreguntas import pickPregunta
 
@@ -10,6 +11,7 @@ from funcionesPreguntas import pickPregunta
 load_dotenv()
 intents = discord.Intents.all()
 bot = discord.Client(intents=intents)
+tree = app_commands.CommandTree(bot)
 
 #bot = commands.Bot(command_prefix='>', description="This is a survey bot")
 
@@ -17,11 +19,7 @@ bot = discord.Client(intents=intents)
 @bot.event 
 async def on_ready():
     print('Bender is ready')
-    try:
-        synced = await bot.tree.sync()
-        print(f"Synced {len(synced)} command(s)")
-    except Exception as e:
-        print(e)    
+
 
 @bot.event
 async def on_message(message):
@@ -37,10 +35,9 @@ async def on_message(message):
             lista_miembros.append(member)                
         await message.channel.send(f"{lista_miembros[1].mention} - {pickPregunta()}")   
 
-@bot.tree.command(name="hello", description="Esto es un comando de prueba")
-async def hello(interaction: discord.Interaction):
-    await interaction.response.message.send(f"Hey {interaction.user.mention}! Esto es un slash command!")
-    
+@tree.command(name = "commandname", description = "My first application Command") #Add the guild ids in which the slash command will appear. If it should be in all, remove the argument, but note that it will take some time (up to an hour) to register the command if it's for all guilds.
+async def first_command(interaction):
+    await interaction.response.send_message("Hello!")
     
          
         
